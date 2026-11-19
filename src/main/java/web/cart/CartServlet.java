@@ -48,9 +48,6 @@ public class CartServlet extends HttpServlet {
             url = "/cart.jsp";
         } else if (action.equals("update")) {
             String id = request.getParameter("id");
-            if (id == null) {
-                id = request.getParameter("id");
-            }
             int quantity = 1;
             try {
                 quantity = Integer.parseInt(request.getParameter("quantity"));
