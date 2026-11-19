@@ -15,14 +15,6 @@ public class Cart implements Serializable {
         this.items = items != null ? items : new ArrayList<>();
     }
 
-    public ArrayList<LineItem> getItems() {
-        return items;
-    }
-
-    public void setItems(ArrayList<LineItem> items) {
-        this.items = items;
-    }
-
     // Alias for cart attribute
     public ArrayList<LineItem> getCart() {
         return items;
