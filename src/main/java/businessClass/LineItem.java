@@ -32,13 +32,6 @@ public class LineItem implements Serializable {
         this.quantity = quantity;
     }
 
-    public int getQuatity() {
-        return quantity;
-    }
-
-    public void setQuatity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public double getTotal() {
         if (product == null) {
@@ -47,16 +40,4 @@ public class LineItem implements Serializable {
         return Math.round((product.getPrice() * quantity) * 100.0) / 100.0;
     }
 
-
-    public String getProductCode() {
-        return product != null ? product.getId() : "";
-    }
-
-    public String getDescription() {
-        return product != null ? product.getDescription() : "";
-    }
-
-    public double getPrice() {
-        return product != null ? product.getPrice() : 0.0;
-    }
 }
