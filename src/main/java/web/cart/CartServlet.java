@@ -29,9 +29,9 @@ public class CartServlet extends HttpServlet {
         if (action.equals("shop")) {
             url = "/index.jsp";
         } else if (action.equals("cart")) {
-            String productCode = request.getParameter("productCode");
-            if (productCode == null) {
-                productCode = request.getParameter("id");
+            String id = request.getParameter("id");
+            if (id == null) {
+                id = request.getParameter("id");
             }
             String description = request.getParameter("description");
             double price = 0.0;
@@ -41,15 +41,15 @@ public class CartServlet extends HttpServlet {
                 price = 0.0;
             }
 
-            Product product = new Product(productCode, description, price);
+            Product product = new Product(id, description, price);
             LineItem lineItem = new LineItem(product, 1);
             cart.addItem(lineItem);
 
             url = "/cart.jsp";
         } else if (action.equals("update")) {
-            String productCode = request.getParameter("productCode");
-            if (productCode == null) {
-                productCode = request.getParameter("id");
+            String id = request.getParameter("id");
+            if (id == null) {
+                id = request.getParameter("id");
             }
             int quantity = 1;
             try {
@@ -57,14 +57,14 @@ public class CartServlet extends HttpServlet {
             } catch (NumberFormatException nfe) {
                 quantity = 1;
             }
-            cart.updateQuantity(productCode, quantity);
+            cart.updateQuantity(id, quantity);
             url = "/cart.jsp";
         } else if (action.equals("remove")) {
-            String productCode = request.getParameter("productCode");
-            if (productCode == null) {
-                productCode = request.getParameter("id");
+            String id = request.getParameter("id");
+            if (id == null) {
+                id = request.getParameter("id");
             }
-            cart.removeItemById(productCode);
+            cart.removeItemById(id);
             url = "/cart.jsp";
         } else if (action.equals("checkout")) {
             double total = cart.getTotalAmount();
