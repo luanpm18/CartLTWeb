@@ -1,16 +1,22 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 19/11/2026
-  Time: 10:38 SA
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+<h1>Thanks for buying!</h1>
+<h2>Total price: $${sessionScope.total}</h2>
+
+<div class="actions">
+    <form action="cart" method="post">
+        <input type="hidden" name="action" value="back">
+        <input type="submit" value="Back">
+    </form>
+</div>
+</body>
+
 </html>

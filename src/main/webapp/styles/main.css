@@ -1,0 +1,75 @@
+
+
+h1 {
+    color: #1e3a8a;
+    margin-bottom: 16px;
+}
+
+h2 {
+    color: #15803d;
+    margin: 16px 0;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 15px 0 20px 0;
+    min-width: 650px;
+    border: 2px solid #3b82f6;
+}
+th, td {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    text-align: left;
+}
+
+th {
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    padding: 7px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    color: #ffffff;
+    margin: 2px 0;
+}
+
+
+input[value="Add To Cart"] {
+    background-color: #2563eb;
+}
+
+input[value="Update"] {
+    background-color: #0284c7;
+    padding: 5px 10px;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+input[value="Remove Item"],
+input[value="Remove"] {
+    background-color: #ef4444;
+    padding: 5px 10px;
+    font-size: 13px;
+}
+input[value="Remove Item"]:hover {
+    background-color: #dc2626;
+}
+
+input[value="Continue Shopping"] {
+    background-color: #64748b;
+}
+
+input[value="Checkout"] {
+    background-color: #16a34a;
+}
+
+input[value="Back"] {
+    background-color: #1e3a8a;
+}

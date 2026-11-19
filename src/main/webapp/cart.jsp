@@ -1,28 +1,58 @@
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Murach's Java Servlets and JSP</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="styles/main.css"/>
 </head>
 <body>
+<h1>Your Cart</h1>
 
-<h1>Download registration</h1>
+<table>
+    <tr>
+        <th>Quantity</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th></th>
+    </tr>
+    <c:forEach var="item" items="${cart.items}">
+        <tr>
+            <td>
+                <form action="cart" method="post">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="id" value="${item.product.id}">
+                    <input type="text" name="quantity" value="${item.quantity}">
+                    <input type="submit" value="Update">
+                </form>
+            </td>
+            <td>${item.product.description}</td>
+            <td class="right">$${item.product.price}</td>
+            <td class="right">$${item.total}</td>
+            <td>
+                <form action="cart" method="post">
+                    <input type="hidden" name="action" value="remove">
+                    <input type="hidden" name="id" value="${item.product.id}">
+                    <input type="submit" value="Remove Item">
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
 
-<p>To register for our downloads, enter your name and email
-    address below. Then, click on the Submit button.</p>
-<form action="download" method="post">
-    <input type="hidden" name="action" value="registerUser">
-    <label class="pad_top">Email:</label>
-    <input type="email" name="email" value="${user.email}"><br>
-    <label class="pad_top">First Name:</label>
-    <input type="text" name="firstName" value="${user.firstName}"><br>
-    <label class="pad_top">Last Name:</label>
-    <input type="text" name="lastName" value="${user.lastName}"><br>
-    <label>&nbsp;</label>
-    <input type="submit" value="Register" class="margin_left">
-</form>
+<p><b>To change the quantity</b>, enter the new quantity and click on the Update button.</p>
 
+<div class="actions">
+    <form action="cart" method="post">
+        <input type="hidden" name="action" value="shop">
+        <input type="submit" value="Continue Shopping">
+    </form>
+
+    <form action="cart" method="post">
+        <input type="hidden" name="action" value="checkout">
+        <input type="submit" value="Checkout">
+    </form>
+</div>
 </body>
-
 </html>
