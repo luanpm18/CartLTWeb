@@ -43,21 +43,4 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    // Helper methods for compatibility with code/productCode references
-    public String getCode() {
-        return id;
-    }
-
-    public void setCode(String code) {
-        this.id = code;
-    }
-
-    public String getProductCode() {
-        return id;
-    }
-
-    public void setProductCode(String productCode) {
-        this.id = productCode;
-    }
-
 }
